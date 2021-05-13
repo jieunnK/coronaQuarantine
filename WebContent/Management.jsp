@@ -47,9 +47,9 @@
 		현재 페이지 <%=pagenumber %>
 	
 		<div class="text-right">
-		<button class="btn btn-secondary" onclick="location.href='/ManagementPageAdd.html' " >추가</button>
+		<button class="btn btn-secondary" onclick="location.href='./ManagementPageAdd.html' " >추가</button>
 		</div>
-	<br>
+		<br>
 		<table class="table table-hover" style="text-align: center; border: 1px solid #dddddd">
 			<thead >
 				<tr>
@@ -65,10 +65,10 @@
 								
 				%>				
 			<tr>
-				<td><a href="/ManagementPage.jsp?eaterynumber=<%=eateryfumigatorList.get(i).getEaterynumber()%>&page=<%=pagenumber%>"><%=eateryfumigatorList.get(i).getEateryName()%></a></td>
-				<td><a href="/ManagementPage.jsp?eaterynumber=<%=eateryfumigatorList.get(i).getEaterynumber()%>&page=<%=pagenumber%>"><%=eateryfumigatorList.get(i).getEateryAddr()%></a></td>
-				<td><a href="/ManagementPage.jsp?eaterynumber=<%=eateryfumigatorList.get(i).getEaterynumber()%>&page=<%=pagenumber%>"><%=eateryfumigatorList.get(i).getEateryTel()%></td>
-				<td><a href="/ManagementPage.jsp?eaterynumber=<%=eateryfumigatorList.get(i).getEaterynumber()%>&page=<%=pagenumber%>"><%=eateryfumigatorList.get(i).getEateryTime()%></td>
+				<td><a href="./ManagementPage.jsp?eaterynumber=<%=eateryfumigatorList.get(i).getEaterynumber()%>&page=<%=pagenumber%>"><%=eateryfumigatorList.get(i).getEateryName()%></a></td>
+				<td><a href="./ManagementPage.jsp?eaterynumber=<%=eateryfumigatorList.get(i).getEaterynumber()%>&page=<%=pagenumber%>"><%=eateryfumigatorList.get(i).getEateryAddr()%></a></td>
+				<td><a href="./ManagementPage.jsp?eaterynumber=<%=eateryfumigatorList.get(i).getEaterynumber()%>&page=<%=pagenumber%>"><%=eateryfumigatorList.get(i).getEateryTel()%></a></td>
+				<td><a href="./ManagementPage.jsp?eaterynumber=<%=eateryfumigatorList.get(i).getEaterynumber()%>&page=<%=pagenumber%>"><%=eateryfumigatorList.get(i).getEateryTime()%></a></td>
 				<%
 					}
 				%>
@@ -78,42 +78,37 @@
 		</table>
 		<div class="col-md-12" align="center">
 		
-		<ul class="pagination">
-	        <%
-	            if(pg>1){ //처음, 이전 링크  
-	        %>
-	        		<li class="page-item"><a class="page-link" href="Management.jsp?page=1">처음</a></li>
-	        		<li class="page-item"><a class="page-link" href="Management.jsp?page=<%=pg-1%>">이전</a></li>      
-	        <%     
-	            }
-	    	        %>
-        			
-	            
-	        <%
-	        	//페이지 번호
-	            for(int i=fromPage; i<= toPage; i++){
-	                if(i==pg){
-	        %>         
-	                    <li class="active"><a style="background-color:#D3D3D3;" class="page-link" href="#"><%=i %></a></li>
-	        <%     
-	                }else{
-	        %>
-	        			<li class="page-item"><a class="page-link" href="Management.jsp?page=<%=i%>"><%=i %></a></li>
-	        <%
-	                }	
-	            }
-	        		
-	        %>        			     
-	        <%
-	            if(pg<=1 || pg<allPage){ //다음, 이후 링크
-	        %>
-	        		<li class="page-item"><a class="page-link" href="Management.jsp?page=<%=pg+1%>">다음</a></li>
-	        		<li class="page-item"><a class="page-link" href="Management.jsp?page=<%=allPage%>">마지막</a></li>                   
-	        <%     
-	            }
-	        %>                                     
-	  </ul>
-	</div>
+			<ul class="pagination">
+		    <%
+		    if(pg>1){ //처음, 이전 링크  
+		        %>
+		        <li class="page-item"><a class="page-link" href="Management.jsp?page=1">처음</a></li>
+		        <li class="page-item"><a class="page-link" href="Management.jsp?page=<%=pg-1%>">이전</a></li>      
+		       	<%     
+		   	}
+		    	        
+		   	//페이지 번호
+		    for(int i=fromPage; i<= toPage; i++){
+		    	if(i==pg){
+		        	%>         
+		            	<li class="active"><a style="background-color:#D3D3D3;" class="page-link" href="#"><%=i %></a></li>
+		        	<%     
+		        }else{
+		        	%>
+		        		<li class="page-item"><a class="page-link" href="Management.jsp?page=<%=i%>"><%=i %></a></li>
+		        	<%
+		        }	
+		    }
+	
+		  	if(pg<=1 || pg<allPage){ //다음, 이후 링크
+		        %>
+		        	<li class="page-item"><a class="page-link" href="Management.jsp?page=<%=pg+1%>">다음</a></li>
+		       	 	<li class="page-item"><a class="page-link" href="Management.jsp?page=<%=allPage%>">마지막</a></li>                   
+		        <%     
+		        }
+		   %>                                     
+		  </ul>
+		</div>
 	</div>	
 </body>
 </html>

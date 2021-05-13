@@ -93,7 +93,7 @@
 
 </head>
 <body>
-<jsp:forward page="/ManagementPage.jsp?eaterynumber=${eaterynumber}"/>
+<jsp:forward page="./ManagementPage.jsp?eaterynumber=${eaterynumber}"/>
 
 </body>
 </html>

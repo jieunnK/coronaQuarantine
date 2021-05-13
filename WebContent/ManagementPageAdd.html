@@ -11,15 +11,13 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="index.jsp">안심방역지도</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"> 
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown">
-						관리페이지
-					</a>
+					<a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown"> 관리페이지 </a>
 					<div class="dropdown-menu" aria-labelledby="dropdown">
 						<a class="dropdown-item" href="Management.jsp">전체 목록</a>
 					</div>
@@ -27,146 +25,155 @@
 			</ul>
 		</div>
 	</nav>
-	
+
 	<br>
 	<br>
 	<br>
 	<div class="container">
-	<form name="gForm" action="/ManagementPageAdd.jsp" enctype="multipart/form-data" method="post">
-		<table class="table table-hover" style="text-align: center; border: 1px solid #dddddd">
-			<tr>
-				<td>상호명 : </td>
-				<td colspan="2"><input type="text" name="eateryName"></td>
-			</tr>
-			<tr>
-			<td>업종 : </td>
-			<td colspan="2"><select id="category" name ="eaterycategory">
-				<option value="cook">음식점</option>
-				<option value="coffe">커피숍</option>
-				<option value="on">기타</option>
-			</select></td>
-			</tr>
-			<tr>
-				<td>주소 : </td>
-				<td colspan="2"><input type="text" name="eateryAddr"></td>
-			</tr>
-			<tr>
-				<td>연락처 : </td>
-				<td colspan="2"><input type="text" name="eateryTel"></td>
-		
-			</tr>
-			<tr>
-				<td>영업시간 : </td>
-				<td colspan="2"><input type="text" name="eateryTime"></td>
-			</tr>
-			<tr>
-				<td>방역날짜: </td>
-				<td colspan="2"><input type="date" name="eateryDate"></td>
-			</tr>
-			<tr>
-				<td> 비대면 주문 : </td>
-				<td colspan="2">
-					<input type="radio" name="untact" value="O" checked="checked" >O  &nbsp;&nbsp;&nbsp;
-					<input type="radio" name="untact" value="X" >X
+		<form name="gForm" action="/ManagementPageAdd.jsp"
+			enctype="multipart/form-data" method="post">
+			<table class="table table-hover"
+				style="text-align: center; border: 1px solid #dddddd">
+				<tr>
+					<td>상호명 :</td>
+					<td colspan="2"><input type="text" name="eateryName"></td>
+				</tr>
+				<tr>
+					<td>업종 :</td>
+					<td colspan="2">
+						<select id="category" name="eaterycategory">
+							<option value="cook">음식점</option>
+							<option value="coffe">커피숍</option>
+							<option value="on">기타</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>주소 :</td>
+					<td colspan="2"><input type="text" name="eateryAddr"></td>
+				</tr>
+				<tr>
+					<td>연락처 :</td>
+					<td colspan="2"><input type="text" name="eateryTel"></td>
+
+				</tr>
+				<tr>
+					<td>영업시간 :</td>
+					<td colspan="2"><input type="text" name="eateryTime"></td>
+				</tr>
+				<tr>
+					<td>방역날짜:</td>
+					<td colspan="2"><input type="date" name="eateryDate"></td>
+				</tr>
+				<tr>
+					<td>비대면 주문 :</td>
+					<td colspan="2"><input type="radio" name="untact" value="O" checked="checked">O  
+					&nbsp;&nbsp;&nbsp; 
+					<input type="radio" name="untact" value="X">X
 				</td>
-			</tr>
-			<tr>
-				<td> 포장 : </td>
-				<td colspan="2">
-					<input type="radio" name="packing" value="O" checked="checked" >O  &nbsp;&nbsp;&nbsp;
+				</tr>
+				<tr>
+					<td>포장 :</td>
+					<td colspan="2"><input type="radio" name="packing" value="O" checked="checked">O  &nbsp;&nbsp;&nbsp; 
 					<input type="radio" name="packing" value="X">X
 				</td>
-			</tr>
-			<tr>
-				<td> 배달 : </td>
-				<td colspan="2">
-					<input type="radio" name="deliver" value="O" checked="checked" >O  &nbsp;&nbsp;&nbsp;
+				</tr>
+				<tr>
+					<td>배달 :</td>
+					<td colspan="2"><input type="radio" name="deliver" value="O" checked="checked">O  &nbsp;&nbsp;&nbsp; 
 					<input type="radio" name="deliver" value="X">X
 				</td>
-			</tr>
-			<tr>
-				<td> 이미지 업로드 : </td>
-				<td><table class="table table-hover" style="text-align: center; border: 1px solid #dddddd" id="dynamic_table">
-					<input type="hidden" name="count" ></table></td>
-				<td><input class="btn btn-secondary" type="button" value="파일추가" onclick="javascript:addInputBox();">  <input class="btn btn-secondary" type="button" value="파일삭제" onclick="javascript:subtractInputBox();"><br><br></td>	
-			</tr>
-		</table>
-		<div class="text-center" >
-			<input class="btn btn-secondary" type="button" value="확인" onclick="javascript:chk();"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input class="btn btn-secondary" type="button" value="취소" onclick="location.href='/Management.jsp' ">
-		</div>
+				</tr>
+				<tr>
+					<td>이미지 업로드 :</td>
+					<td><table class="table table-hover" style="text-align: center; border: 1px solid #dddddd" id="dynamic_table">
+							<input type="hidden" name="count">
+						</table>
+					</td>
+					<td>
+						<input class="btn btn-secondary" type="button" value="파일추가" onclick="javascript:addInputBox();"> 
+						<input class="btn btn-secondary" type="button" value="파일삭제" onclick="javascript:subtractInputBox();">
+						<br> 
+						<br>
+					</td>
+				</tr>
+			</table>
+			<div class="text-center">
+				<input class="btn btn-secondary" type="button" value="확인" onclick="javascript:chk();"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				<input class="btn btn-secondary" type="button" value="취소" onclick="location.href='/Management.jsp' ">
+			</div>
 		</form>
-		
-		
-<script language="javascript" src="check.js"></script>
-<script >
-	var count = 1;
-	var addCount;
-	
-	//행추가
-	function addInputBox() {
-	for(var i=1; i<=count; i++) {
-	 if(!document.getElementsByName("test"+i)[0]) {
-	  addCount = i;
-	  break;
-	 }
-	 else addCount = count;
-	}
-	
-	var addStr = "<tr><td width=40><input type=checkbox name=checkList value="+addCount+" size=40 ></td><td width=140><input type=file name=test"+addCount+" size=40></td></tr>";
-	var table = document.getElementById("dynamic_table");
-	var newRow = table.insertRow();
-	var newCell = newRow.insertCell();
-	newCell.innerHTML = addStr;
-	count++;
-	}
-	
-	//행삭제
-	function subtractInputBox() {
-	var table = document.getElementById("dynamic_table");
-	//var max = document.gForm.checkList.length;
-	//alert(max);
-	var rows = dynamic_table.rows.length;
-	var chk = 0;
-	if(rows > 1){
-	 for (var i=0; i<document.gForm.checkList.length; i++) {
-	  if (document.gForm.checkList[i].checked == true) {
-	   table.deleteRow(i);
-	   i--;
-	   count--;
-	   chk++;
-	  }
-	 }
-	 if(chk <= 0){
-	  alert("삭제할 행을 체크해 주세요.");
-	 }
-	  }else{
-	   alert("더이상 삭제할 수 없습니다.");
-  }
-}
-	
-	function chk(){
-		// 서버에 접속하지 않고 클라이언트 자체에서 유효성 검사
-		if( isNull(document.gForm.eateryName)){
-			window.alert("상호명을 입력해주세요.");
-			return false;
+	</div>
+
+	<script language="javascript" src="./js/check.js"></script>
+	<script>
+		var count = 1;
+		var addCount;
+
+		//행추가
+		function addInputBox() {
+			for (var i = 1; i <= count; i++) {
+				if (!document.getElementsByName("test" + i)[0]) {
+					addCount = i;
+					break;
+				} else
+					addCount = count;
+			}
+
+			var addStr = "<tr><td width=40><input type=checkbox name=checkList value="+addCount+" size=40 ></td><td width=140><input type=file name=test"+addCount+" size=40></td></tr>";
+			var table = document.getElementById("dynamic_table");
+			var newRow = table.insertRow();
+			var newCell = newRow.insertCell();
+			newCell.innerHTML = addStr;
+			count++;
 		}
-			
-		if( isNull(document.gForm.eateryAddr)){
-			window.alert("주소를 입력해주세요.");
-			return false;
-			
-		}	
-		if( isNull(document.gForm.eateryTime)){
-			window.alert("영업시간을 입력해주세요.");
-			return false;
+
+		//행삭제
+		function subtractInputBox() {
+			var table = document.getElementById("dynamic_table");
+			//var max = document.gForm.checkList.length;
+			//alert(max);
+			var rows = dynamic_table.rows.length;
+			var chk = 0;
+			if (rows > 1) {
+				for (var i = 0; i < document.gForm.checkList.length; i++) {
+					if (document.gForm.checkList[i].checked == true) {
+						table.deleteRow(i);
+						i--;
+						count--;
+						chk++;
+					}
+				}
+				if (chk <= 0) {
+					alert("삭제할 행을 체크해 주세요.");
+				}
+			} else {
+				alert("더이상 삭제할 수 없습니다.");
+			}
 		}
-		if( isNull(document.gForm.eateryDate)){
-			window.alert("방역날짜을 입력해주세요.");
-			return false;
+
+		function chk() {
+			// 서버에 접속하지 않고 클라이언트 자체에서 유효성 검사
+			if (isNull(document.gForm.eateryName)) {
+				window.alert("상호명을 입력해주세요.");
+				return false;
+			}
+
+			if (isNull(document.gForm.eateryAddr)) {
+				window.alert("주소를 입력해주세요.");
+				return false;
+
+			}
+			if (isNull(document.gForm.eateryTime)) {
+				window.alert("영업시간을 입력해주세요.");
+				return false;
+			}
+			if (isNull(document.gForm.eateryDate)) {
+				window.alert("방역날짜을 입력해주세요.");
+				return false;
+			}
+			document.gForm.submit();
 		}
-		document.gForm.submit();
-	}
-</script>
+	</script>
 </body>
 </html>

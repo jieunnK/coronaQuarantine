@@ -1,80 +1,69 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-    
-<%@ page import = "com.fumigatorProject.*,java.util.*" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="utf-8"%>
+
+<%@ page import="com.fumigatorProject.*,java.util.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	EateryfumigatorDAO eateryfumigatorDAO = new EateryfumigatorDAO();
 	ArrayList<EateryfumigatorDTO> eateryList = eateryfumigatorDAO.eateryQuery();
-		
-	int count = eateryfumigatorDAO.eaterygetCount();		
-		
-%>	
-	<jsp:include page="top.jsp" flush="true"/>
-	<jsp:include page="Mainsidebar.jsp" flush="true"/>
-	<br>
-	<br>
-	<center>
-	
-	<div id="map" style="width:800px;height:800px;"></div>
-	 <div id="menu_wrap" class="bg_white">
-	 
-	 <%
-	 	for(int i =0; i<eateryList.size(); i++) {
-	 		String eateryname = eateryList.get(i).getEateryName();
-	 		String eaterytime = eateryList.get(i).getEateryTime();
-	 		String eaterytel = eateryList.get(i).getEateryTel();
-	 		String fileimage = eateryfumigatorDAO.fileOneQuery(eateryList.get(i).getEaterynumber());
-	 		String category = eateryList.get(i).getEaterycategory();
-	 		int eaterynumber = eateryList.get(i).getEaterynumber();
-	 	
-	 %>
-   		<div onclick="listclick(<%=eaterynumber%>)">
-        	<table class="tablemain">
-        		<tr>
-        		<td class="td1">
-        			<img src="/upload/<%=fileimage%>"width="73" height="70"> 
-        			
-        		</td>
-        		<td class="td1">
-        		<a class="td2"><%=eateryList.get(i).getEateryName() %></a><br>
-        		<%=eateryList.get(i).getEateryAddr() %>
-        		</td>
-        		</tr>
-        	</table>
-   		</div>
-   		<br>
-   		<%
-	 	}
-   		%> 		
-    </div>
-	</center>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9820853baf9c374fbc6b13812abb7da7&libraries=services"></script>
-	<script>
+
+	int count = eateryfumigatorDAO.eaterygetCount();
+%>
+<jsp:include page="top.jsp" flush="true" />
+<jsp:include page="Mainsidebar.jsp" flush="true" />
+<br>
+<br>
+<center>
+
+	<div id="map" style="width: 800px; height: 800px;"></div>
+	<div id="menu_wrap" class="bg_white">
+
+		<%
+			for (int i = 0; i < eateryList.size(); i++) {
+			String eateryname = eateryList.get(i).getEateryName();
+			String eaterytime = eateryList.get(i).getEateryTime();
+			String eaterytel = eateryList.get(i).getEateryTel();
+			String fileimage = eateryfumigatorDAO.fileOneQuery(eateryList.get(i).getEaterynumber());
+			String category = eateryList.get(i).getEaterycategory();
+			int eaterynumber = eateryList.get(i).getEaterynumber();
+		%>
+		<div onclick="listclick(<%=eaterynumber%>)">
+			<table class="tablemain">
+				<tr>
+					<td class="td1"><img src="/upload/<%=fileimage%>" width="73" height="70"></td>
+					<td class="td1">
+						<a class="td2"> <%=eateryList.get(i).getEateryName()%></a>
+						<br>
+						<%=eateryList.get(i).getEateryAddr()%>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<br>
+		<%
+			}
+		%>
+	</div>
+</center>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9820853baf9c374fbc6b13812abb7da7&libraries=services"></script>
+<script>
 	
 	var custom = {};
 
 	// 마커를 표시할 위치등 객체 배열
 	var positions = [
-			<%	
-				for(int i = 0; i < eateryList.size(); i++) {
-			%>
+			<%for (int i = 0; i < eateryList.size(); i++) {%>
 				{
-					eaterynumber : '<%=eateryList.get(i).getEaterynumber() %>',
+					eaterynumber : '<%=eateryList.get(i).getEaterynumber()%>',
 					title : '<%=eateryList.get(i).getEateryName()%>',
 					address : '<%=eateryList.get(i).getEateryAddr()%>',
 					Time : '<%=eateryList.get(i).getEateryTime()%>',
 					tel : '<%=eateryList.get(i).getEateryTel()%>',
-					category : '<%= eateryList.get(i).getEaterycategory()%>',
-			<%	
-					String name = eateryfumigatorDAO.fileOneQuery(eateryList.get(i).getEaterynumber());
-			%>
-					fileimagee : '<%=name %>',
+					category : '<%=eateryList.get(i).getEaterycategory()%>',
+			<%String name = eateryfumigatorDAO.fileOneQuery(eateryList.get(i).getEaterynumber());%>
+					fileimagee : '<%=name%>',
 				},
-			<%
-				}
-				
-			%>
+			<%}%>
 	];
 	   
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
