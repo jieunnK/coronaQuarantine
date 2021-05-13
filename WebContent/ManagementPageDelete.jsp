@@ -43,7 +43,7 @@
 %>
 </head>
 <body>
-	<jsp:forward page="/Management.jsp"/>
+	<jsp:forward page="./Management.jsp"/>
 
 </body>
 </html>
