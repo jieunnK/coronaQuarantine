@@ -28,6 +28,7 @@ if (fileList != null) {
 
 	}
 }
+
 eateryfumigatorDAO.fileDelete(eaterynumber, fileidx);
 %>
 <jsp:forward page="./ManagementPageChange.jsp" />

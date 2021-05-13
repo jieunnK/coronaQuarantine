@@ -121,6 +121,7 @@ ArrayList<FileDTO> fileList = eateryfumigatorDAO.fileQuery(number);
 			onclick="location.href='./ManagementPage.jsp?eaterynumber=${eaterynumber}' ">
 	</div>
 </form>
+
 <script>
 	   var count = 1;
 	   var addCount;

@@ -15,6 +15,7 @@
 <script src="./js/poopoer.js"></script>
 <!-- 제이쿼리 자바스크립트 추가하기 -->
 <script src="./js/bootstrap.min.js"></script>
+
 <title>Insert title here</title>
 </head>
 <body>

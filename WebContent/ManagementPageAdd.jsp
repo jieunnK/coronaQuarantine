@@ -84,7 +84,5 @@
 </head>
 <body>
 	<jsp:forward page="./Management.jsp"/>
-	
-
 </body>
 </html>

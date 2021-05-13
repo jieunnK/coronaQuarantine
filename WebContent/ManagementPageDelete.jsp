@@ -21,7 +21,6 @@
 	String filepath = null;
 	String savePath = config.getServletContext().getRealPath("/upload/");
 	  
-	   
 	File file;
 	if(fileList != null){
 		for(int i =0; i<fileList.size(); i++){

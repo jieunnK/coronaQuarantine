@@ -102,7 +102,6 @@ ArrayList<FileDTO> fileList = eateryfumigatorDAO.fileQuery(number);
 					 %>
 					</td>
 					<td></td>
-
 				</tr>
 				<tr>
 					<td>
